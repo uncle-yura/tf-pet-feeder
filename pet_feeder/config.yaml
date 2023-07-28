@@ -1,0 +1,24 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: TensorFlow Pet Feeder
+version: "0.0.1"
+slug: tf-pet-feeder
+description: TensorFlow Pet Feeder
+url: "https://github.com/uncle-yura/tf-pet-feeder/tree/main/pet_feeder"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+ingress: true
+panel_icon: "mdi:fishbowl"
+map:
+  - config:rw
+options:
+  image_dir: "timelapses"
+  work_dir: "pet_feeder"
+schema:
+  image_dir: "str?"
+  work_dir: "str?"
+# image: "uncle-yura/tf-pet-feeder-{arch}"

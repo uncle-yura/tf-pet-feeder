@@ -1,0 +1,8 @@
+configuration:
+  work_dir:
+    name: Робоча директорія
+    description: Шлях яким будуть зберігаться сортовані зображення та моделі TensorFlow.
+
+  image_dir:
+    name: Директорія джерело зображень
+    description: Шлях де add-on буде брати зображення для сортування.

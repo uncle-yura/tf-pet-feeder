@@ -1,0 +1,8 @@
+configuration:
+  work_dir:
+    name: Work Directory Path
+    description: Path where sorted images and tensorflow models will be stored.
+
+  image_dir:
+    name: Source Image Directoryh
+    description: Path from where the addon will take images for sorting.

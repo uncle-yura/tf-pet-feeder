@@ -1,0 +1,6 @@
+venv/
+.vscode/settings.json
+.DS_Store
+*.pyc
+*.npy
+*.h5

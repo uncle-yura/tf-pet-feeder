@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Example Home Assistant add-on repository
-url: 'https://github.com/home-assistant/addons-example'
-maintainer: Awesome Maintainer <awesome@example.com>
+name: TensorFlow Pet Feeder add-on repository
+url: 'https://github.com/uncle-yura/tf-pet-feeder'
+maintainer: Uncle Yura <uncle-yura@tuta.io>

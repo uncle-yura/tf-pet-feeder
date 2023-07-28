@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text-container">
+        <h3>Actions:</h3>
+    </div>
+
+    <div class="buttons-container">
+        <button id="createDataButton" name="button" value="create_data">Create train data</button>
+        <button id="trainModelButton" name="button" value="train_model">Train model</button>
+        <button id="testModelButton" name="button" value="test_model">Test model</button>
+    </div>
+
+    <div class="buttons-container">
+        <div class="loader" id="loader"></div>
+    </div>
+
+    <div class="buttons-container">
+        <div class="text-container">
+            <h4>Test image</h4>
+            <input type="file" id="image" accept="image/*">
+            <button id="uploadButton">Upload Image</button>
+        </div>
+    </div>
+
+    <div class="text-container">
+        <h5>Result:</h4>
+        <p id="resultMessage"></p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var loader = document.getElementById('loader');
+
+            $('#createDataButton, #trainModelButton, #testModelButton').click(function() {
+                var buttonValue = $(this).val();
+                loader.style.display = 'block';
+
+                $.ajax({
+                    url: '{{ ingress_entry }}/train',
+                    type: 'POST',
+                    data: { button: buttonValue },
+                    success: function(response) {
+                        loader.style.display = 'none';
+                        $('#resultMessage').text(response.message);
+                    },
+                    error: function(xhr, status, error) {
+                        loader.style.display = 'none';
+                        $('#resultMessage').text('Error: ' + error);
+                    }
+                });
+            });
+
+            $('#uploadButton').click(function() {
+                var fileInput = document.getElementById('image');
+                var file = fileInput.files[0];
+
+                if (file) {
+                    var formData = new FormData();
+                    formData.append('image', file);
+
+                    loader.style.display = 'block';
+
+                    $.ajax({
+                        url: '{{ ingress_entry }}/predict',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function(response) {
+                            loader.style.display = 'none';
+                            $('#resultMessage').text(response.predicted_class);
+                        },
+                        error: function(xhr, status, error) {
+                            loader.style.display = 'none';
+                            $('#resultMessage').text('Error uploading image: ' + error);
+                        }
+                    });
+                } else {
+                    $('#resultMessage').text('Please select an image to upload.');
+                }
+            });
+        });
+    </script>
+
+    <div class="text-container">
+        <p>{{ message }}</p>
+    </div>
+{% endblock%}

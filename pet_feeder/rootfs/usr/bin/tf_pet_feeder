@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bashio
+
+export WORK_DIR=$(bashio::config 'work_dir')
+export IMAGE_DIR=$(bashio::config 'image_dir')
+export INGRESS_ENTRY=$(bashio::addon.ingress_entry)
+
+cd /etc/tf_pet_feeder/
+flask --app main run

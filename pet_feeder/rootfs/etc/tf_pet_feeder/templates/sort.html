@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="image-container">
+        {% if image_base64 %}
+            <img src="data:image/jpg;base64,{{ image_base64 }}" alt="Image">
+        {% else %}
+            <p>No images available.</p>
+        {% endif %}
+    </div>
+
+    <div class="buttons-container">
+        {% if image_base64 %}
+            <form method="post">
+                {% for button in buttons %}
+                    <button type="submit" name="button" value="{{ button }}">{{ button }}</button>
+                {% endfor %}
+            </form>
+        {% endif %}
+    </div>
+{% endblock%}
