@@ -1,12 +1,12 @@
-import base64
+import os
+import numpy as np
+import cv2
+
+from tensorflow.keras.models import load_model
+from flask import Flask, request, jsonify, render_template
 
 from .utils import create_train_data, get_image_base64, get_next_filename, train_model
 from .constants import *
-from flask import Flask, request, jsonify, render_template
-import numpy as np
-import cv2
-from tensorflow.keras.models import load_model
-import os
 
 app = Flask(__name__)
 
