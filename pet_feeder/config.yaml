@@ -20,4 +20,4 @@ options:
 schema:
   image_dir: "str?"
   work_dir: "str?"
-# image: "uncle-yura/tf-pet-feeder-{arch}"
+image: "uncle-yura/tf-pet-feeder-{arch}"
