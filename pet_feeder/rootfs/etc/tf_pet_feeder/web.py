@@ -80,4 +80,4 @@ def sort():
 
     image_base64 = get_image_base64(image_file)
 
-    return render_template('sort.html', image_base64=image_base64, buttons=CLASSES)
+    return render_template('sort.html', image_base64=image_base64, buttons=CLASSES+["ignore"])
