@@ -27,5 +27,12 @@ RUN \
         --no-cache-dir \
         -r requirements.txt
 
+ARG BUILD_ARCH
+RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
+        pip3 install https://tf.novaal.de/core2/tensorflow-2.8.0-cp39-cp39-linux_x86_64.whl ; \
+    elif [ "$BUILD_ARCH" = "aarch64" ]; then  \
+        pip3 install tensorflow ;  \
+    fi
+
 # Copy root filesystem
 COPY rootfs /
