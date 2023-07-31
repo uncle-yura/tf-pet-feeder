@@ -11,3 +11,7 @@
 ## 0.0.3
 
 - Fixed image resizing for predict adpoint
+
+## 0.0.4
+
+- Removed apparmor

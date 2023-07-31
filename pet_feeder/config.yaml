@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: TensorFlow Pet Feeder
-version: "0.0.3"
+version: "0.0.4"
 slug: tf-pet-feeder
 description: TensorFlow Pet Feeder
 url: "https://github.com/uncle-yura/tf-pet-feeder/tree/main/pet_feeder"
