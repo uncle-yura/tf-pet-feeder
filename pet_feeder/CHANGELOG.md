@@ -3,3 +3,11 @@
 ## 0.0.1
 
 - Beta release
+
+## 0.0.2
+
+- Modified AMD64 version of tensorflow without AVX optimization
+
+## 0.0.3
+
+- Fixed image resizing for predict adpoint

@@ -25,6 +25,11 @@ def index():
 def predict():
     file = request.files['image']
     image = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_COLOR)
+
+    height, width = image.shape[:2]
+    if height!=IMAGE_HEIGHT or width!=IMAGE_WIDTH:
+        image = cv2.resize(image, [IMAGE_WIDTH, IMAGE_HEIGHT])
+
     image = image[Y_OFFSET : Y_OFFSET + HEIGHT, X_OFFSET : X_OFFSET + WIDTH]
     image = np.expand_dims(image, axis=0)
 
